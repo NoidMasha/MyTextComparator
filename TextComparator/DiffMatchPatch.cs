@@ -1341,15 +1341,15 @@ namespace DiffMatchPatch {
           .Replace(">", "&gt;").Replace("\n", "&para;<br>");
         switch (aDiff.operation) {
           case Operation.INSERT:
-            html.Append("<ins style=\"background:#72FBC5;\">").Append(text)
+            html.Append("<ins style=\"background:#72FBC5;font-family: Arial, Helvetica, sans-serif;\">").Append(text)
                 .Append("</ins>");
             break;
           case Operation.DELETE:
-            html.Append("<ins style=\"background:#FBA8A8;\">").Append(text)
+            html.Append("<ins style=\"background:#FBA8A8;font-family: Arial, Helvetica, sans-serif;\">").Append(text)
                 .Append("</ins>");
             break;
           case Operation.EQUAL:
-            html.Append("<span>").Append(text).Append("</span>");
+            html.Append("<span style=\"font-family: Arial, Helvetica, sans-serif;\">").Append(text).Append("</span>");
             break;
         }
       }
