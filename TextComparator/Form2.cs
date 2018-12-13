@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace TextComparator
 {
@@ -30,6 +31,23 @@ namespace TextComparator
             dmp.diff_cleanupSemantic(diff);
 
             webBrowser1.DocumentText = dmp.diff_prettyHtml(diff);
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog()
+            {
+                Filter = "HTML files (*.html)|*.html",
+                Title = "Save html"
+        };
+            //saveFileDialog.ShowDialog();
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = saveFileDialog.FileName;
+                // Write to the file name selected.
+                // ... You can write the text from a TextBox instead of a string literal.
+                File.WriteAllText(fileName, webBrowser1.DocumentText);
+            }
         }
     }
 }

@@ -145,13 +145,9 @@ namespace TextComparator
 
         private void compare()
         {
-            if (string.IsNullOrWhiteSpace(aFileContentTextBox.Text) || string.IsNullOrWhiteSpace(bFileContentTextBox.Text))
-            {
-                MessageBox.Show("Files are not loaded correctly.");
-                return;
-            }
-
-            if (string.Compare(aFilePathTextBox.Text, bFilePathTextBox.Text, true) == 0)
+            if (string.Compare(aFilePathTextBox.Text, bFilePathTextBox.Text, true) == 0 &&
+                !string.IsNullOrWhiteSpace(aFilePathTextBox.Text) &&
+                !string.IsNullOrWhiteSpace(aFilePathTextBox.Text))
             {
                 MessageBox.Show("Same file is selected for A and B !");
                 return;
@@ -170,7 +166,9 @@ namespace TextComparator
         private Form2 diffForm = null;
         private void showDiffsButton_Click(object sender, EventArgs e)
         {
-            if (diffForm == null) diffForm = new Form2() { TextA = aFileContentTextBox.Text, TextB = bFileContentTextBox.Text };
+            if (diffForm == null) diffForm = new Form2();
+            diffForm.TextA = aFileContentTextBox.Text;
+            diffForm.TextB = bFileContentTextBox.Text;
             diffForm.ShowDialog();
         }
 

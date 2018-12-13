@@ -31,6 +31,7 @@
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.saveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // webBrowser1
@@ -66,15 +67,27 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Only exists in file B";
             // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(711, 4);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 2;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(807, 644);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.webBrowser1);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(823, 682);
             this.Name = "Form2";
             this.Text = "Differences";
             this.Load += new System.EventHandler(this.Form2_Load);
@@ -88,5 +101,6 @@
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button saveButton;
     }
 }

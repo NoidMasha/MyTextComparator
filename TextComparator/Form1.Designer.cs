@@ -129,7 +129,7 @@
             // showDiffsButton
             // 
             this.showDiffsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showDiffsButton.Location = new System.Drawing.Point(620, 584);
+            this.showDiffsButton.Location = new System.Drawing.Point(620, 102);
             this.showDiffsButton.Margin = new System.Windows.Forms.Padding(0);
             this.showDiffsButton.Name = "showDiffsButton";
             this.showDiffsButton.Size = new System.Drawing.Size(60, 46);
@@ -153,6 +153,8 @@
             this.Controls.Add(this.aLoadButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.aFilePathTextBox);
+            this.MaximumSize = new System.Drawing.Size(1315, 680);
+            this.MinimumSize = new System.Drawing.Size(1315, 680);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Comparator";
