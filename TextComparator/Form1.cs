@@ -179,5 +179,65 @@ namespace TextComparator
             bFileContentTextBox.Clear();
             bFilePathTextBox.Clear();
         }
+
+        private void aFileContentTextBox_DragEnter(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(DataFormats.FileDrop)) return;
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            if (!addCheckBox.Checked && files.GetLength(0) > 1) return;
+            foreach (var file in files)
+            {
+                var ext = System.IO.Path.GetExtension(file);
+                if (ext.Equals(".txt", StringComparison.CurrentCultureIgnoreCase))
+                    e.Effect = DragDropEffects.Link;
+                else
+                    e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void aFileContentTextBox_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            aFileContentTextBox.Text = string.Empty;
+            foreach (var file in files)
+            {
+                aFilePathTextBox.Text = (string)file;
+                StreamReader reader = new StreamReader(path: aFilePathTextBox.Text, encoding: System.Text.Encoding.UTF8);
+                
+                aFileContentTextBox.Text += reader.ReadToEnd();
+                aFileContentTextBox.Text += Environment.NewLine;
+                reader.Close();
+            }
+        }
+
+        private void bFileContentTextBox_DragEnter(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(DataFormats.FileDrop)) return;
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            if (!addCheckBox.Checked && files.GetLength(0) > 1) return;
+            foreach (var file in files)
+            {
+                var ext = System.IO.Path.GetExtension(file);
+                if (ext.Equals(".txt", StringComparison.CurrentCultureIgnoreCase))
+                    e.Effect = DragDropEffects.Link;
+                else
+                    e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void bFileContentTextBox_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            bFileContentTextBox.Text = string.Empty;
+            foreach (var file in files)
+            {
+                bFilePathTextBox.Text = (string)file;
+                StreamReader reader = new StreamReader(path: bFilePathTextBox.Text, encoding: System.Text.Encoding.UTF8);
+                
+                bFileContentTextBox.Text += reader.ReadToEnd();
+                bFileContentTextBox.Text += Environment.NewLine;
+                reader.Close();
+            }
+        }
     }
 }

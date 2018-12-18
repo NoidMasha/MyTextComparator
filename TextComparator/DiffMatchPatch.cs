@@ -1566,7 +1566,6 @@ namespace DiffMatchPatch
                     case Operation.EQUAL:
                         html.Append("<spanfont-family: Arial, Helvetica, sans-serif;\">").Append(text).Append("</span>");
                         break;
-                        break;
                 }
             }
             return html.ToString();

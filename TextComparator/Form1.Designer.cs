@@ -38,6 +38,7 @@
             this.bFilePathTextBox = new System.Windows.Forms.TextBox();
             this.compareButton = new System.Windows.Forms.Button();
             this.showDiffsButton = new System.Windows.Forms.Button();
+            this.addCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // aFilePathTextBox
@@ -70,21 +71,27 @@
             // 
             // aFileContentTextBox
             // 
+            this.aFileContentTextBox.AllowDrop = true;
             this.aFileContentTextBox.Location = new System.Drawing.Point(13, 47);
             this.aFileContentTextBox.Multiline = true;
             this.aFileContentTextBox.Name = "aFileContentTextBox";
             this.aFileContentTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.aFileContentTextBox.Size = new System.Drawing.Size(606, 583);
             this.aFileContentTextBox.TabIndex = 3;
+            this.aFileContentTextBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.aFileContentTextBox_DragDrop);
+            this.aFileContentTextBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.aFileContentTextBox_DragEnter);
             // 
             // bFileContentTextBox
             // 
+            this.bFileContentTextBox.AllowDrop = true;
             this.bFileContentTextBox.Location = new System.Drawing.Point(681, 47);
             this.bFileContentTextBox.Multiline = true;
             this.bFileContentTextBox.Name = "bFileContentTextBox";
             this.bFileContentTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.bFileContentTextBox.Size = new System.Drawing.Size(606, 583);
             this.bFileContentTextBox.TabIndex = 7;
+            this.bFileContentTextBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.bFileContentTextBox_DragDrop);
+            this.bFileContentTextBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.bFileContentTextBox_DragEnter);
             // 
             // bLoadButton
             // 
@@ -138,11 +145,22 @@
             this.showDiffsButton.UseVisualStyleBackColor = true;
             this.showDiffsButton.Click += new System.EventHandler(this.showDiffsButton_Click);
             // 
+            // addCheckBox
+            // 
+            this.addCheckBox.AutoSize = true;
+            this.addCheckBox.Location = new System.Drawing.Point(621, 613);
+            this.addCheckBox.Name = "addCheckBox";
+            this.addCheckBox.Size = new System.Drawing.Size(61, 17);
+            this.addCheckBox.TabIndex = 9;
+            this.addCheckBox.Text = "Multifile";
+            this.addCheckBox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1299, 642);
+            this.Controls.Add(this.addCheckBox);
             this.Controls.Add(this.showDiffsButton);
             this.Controls.Add(this.compareButton);
             this.Controls.Add(this.bFileContentTextBox);
@@ -176,6 +194,7 @@
         private System.Windows.Forms.TextBox bFilePathTextBox;
         private System.Windows.Forms.Button compareButton;
         private System.Windows.Forms.Button showDiffsButton;
+        private System.Windows.Forms.CheckBox addCheckBox;
     }
 }
 
